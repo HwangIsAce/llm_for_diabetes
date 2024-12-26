@@ -1,2 +1,45 @@
-
+# [api  key]
 .env
+
+
+# [directory]
+src/data/data2_weekly_diets
+
+
+# [dataset]
+src/data/Recipes
+
+src/data/instruction_dataset.json
+
+# dataset1 - diabetes
+src/data/data1_diabetes/all_data_filtered_by_keywords.csv
+
+src/data/data1_diabetes/final_combined_train_sample.csv
+src/data/data1_diabetes/final_combined_test_sample.csv
+
+src/data/data1_diabetes/train_instruction_dataset.json
+src/data/data1_diabetes/test_instruction_dataset.json
+
+# dataset2 - daily diet
+src/data/data2_daily_diets/diabetes_food_hub.csv
+
+src/data/data2_daily_diets/dfh_instrution_dataset.json
+
+src/data/data2_daily_diets/daily_diets_drop_duplicated_and_sampled.json
+
+src/data/data2_daily_diets/daily_diets_drop_duplicated_and_sampled_test_instruction_dataset.json
+src/data/data2_daily_diets/daily_diets_drop_duplicated_and_sampled_train_instruction_dataset.json
+
+# dataset3 - multi modal
+src/data/data3_multimodal/snapme_origin.csv
+
+src/data/data3_multimodal/snapme_train_instruction_dataset.json
+src/data/data3_multimodal/snapme_test_instruction_dataset.json
+
+# [model]
+src/model/outputs
+src/model/unsloth_compiled_cache
+
+# [result]
+src/model/inference_results_1219.jsonl
+src/model/inference_results_1224.jsonl
