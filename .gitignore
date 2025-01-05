@@ -5,7 +5,6 @@
 # [directory]
 src/data/data2_weekly_diets
 
-
 # [dataset]
 src/data/Recipes
 
@@ -21,7 +20,7 @@ src/data/data1_diabetes/train_instruction_dataset.json
 src/data/data1_diabetes/test_instruction_dataset.json
 
 # dataset2 - daily diet
-src/data/data2_daily_diets/diabetes_food_hub.csv
+src/data/data2_daily_diets/diabetes_food_hub*.csv
 
 src/data/data2_daily_diets/dfh_instrution_dataset*.json
 
