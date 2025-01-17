@@ -1,6 +1,8 @@
 # [api  key]
 .env
 
+# [yanolja]
+/data/jaesung/llm_for_diabetes/src/temp_yanolja/
 
 # [directory]
 src/data/data2_weekly_diets
@@ -41,5 +43,4 @@ src/model/outputs
 src/model/unsloth_compiled_cache
 
 # [result]
-src/model/inference_results_1219.jsonl
-src/model/inference_results_1224.jsonl
+src/model/inference_results_*.jsonl
