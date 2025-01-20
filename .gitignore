@@ -38,6 +38,8 @@ src/data/data3_multimodal/snapme_origin_v3.json
 src/data/data3_multimodal/snapme_train_instruction_dataset*.json
 src/data/data3_multimodal/snapme_test_instruction_dataset*.json
 
+src/data/data3_multimodal/generate_dataset/recommendations*.csv
+
 # [model]
 src/model/outputs
 src/model/unsloth_compiled_cache
