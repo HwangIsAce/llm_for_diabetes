@@ -18,8 +18,8 @@ src/data/data1_diabetes/all_data_filtered_by_keywords.csv
 src/data/data1_diabetes/final_combined_train_sample.csv
 src/data/data1_diabetes/final_combined_test_sample.csv
 
-src/data/data1_diabetes/train_instruction_dataset.json
-src/data/data1_diabetes/test_instruction_dataset.json
+src/data/data1_diabetes/train_instruction_dataset*.json
+src/data/data1_diabetes/test_instruction_dataset*.json
 
 # dataset2 - daily diet
 src/data/data2_daily_diets/diabetes_food_hub*.csv
@@ -32,13 +32,20 @@ src/data/data2_daily_diets/daily_diets_drop_duplicated_and_sampled_test_instruct
 src/data/data2_daily_diets/daily_diets_drop_duplicated_and_sampled_train_instruction_dataset*.json
 
 # dataset3 - multi modal
-src/data/data3_multimodal/snapme_origin.csv
-src/data/data3_multimodal/snapme_origin_v3.json
+src/data/data3_multimodal/version1/snapme_origin.csv
+src/data/data3_multimodal/version1/snapme_origin_v3.json
 
-src/data/data3_multimodal/snapme_train_instruction_dataset*.json
-src/data/data3_multimodal/snapme_test_instruction_dataset*.json
+src/data/data3_multimodal/version2
 
-src/data/data3_multimodal/generate_dataset/recommendations*.csv
+src/data/data3_multimodal/version1/snapme_origin*.json
+
+src/data/data3_multimodal/version1/snapme_train_instruction_dataset*.json
+src/data/data3_multimodal/version1/snapme_test_instruction_dataset*.json
+
+src/data/data3_multimodal/version1/tmp_updated_mm3.csv
+
+# glycemic_idex
+src/data/glycemic_index/
 
 # [model]
 src/model/outputs
