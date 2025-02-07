@@ -48,8 +48,13 @@ src/data/data3_multimodal/version1/tmp_updated_mm3.csv
 src/data/glycemic_index/
 
 # [model]
-src/model/outputs
+src/model/unsloth/backup
+
+src/model/unsloth/outputs
 src/model/unsloth_compiled_cache
 
 # [result]
-src/model/inference_results_*.jsonl
+src/model/unsloth/inference_results_*.jsonl
+
+# etc
+src/model/unsloth/unsloth_compiled_cache
