@@ -1,0 +1,21 @@
+#!/bin/bash
+
+check_dir=(
+    "./mlora"
+    "./mlora_cli"
+)
+
+for dir in ${check_dir[*]}; do
+    lizard -l python ${dir} -C 12
+    
+    black --check ${dir}
+    
+    isort ${dir} --check --profile black
+    
+    flake8 ${dir} --count --show-source --statistics --max-line-length=88 --max-complexity 15 --ignore=E203,W503,E704
+    
+    mypy ${dir} --ignore-missing-imports --non-interactive --install-types --check-untyped-defs
+done
+
+
+pytest
