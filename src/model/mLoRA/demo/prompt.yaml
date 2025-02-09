@@ -6,4 +6,4 @@ template: |
   {{ data_point['input'] + '\n'}}
   {% endif %}
   ### Output:
-  {{ data_point['chosen'] + '\n'}}
+  {{ data_point['output'] + '\n'}}

@@ -2,35 +2,24 @@ dispatcher:
   name: "default"
   concurrency_num: 2
 datasets:
-  - name: "data"
-    data: "demo/data.json"
+  - name: "data_classification_train"
+    data: "demo/data_classification_train.json"
+    prompt: "demo/prompt.yaml"
+    prompt_type: "instruction"
+    preprocess: "shuffle"
+  - name: "data_generation_train"
+    data: "demo/data_generation_train.json"
     prompt: "demo/prompt.yaml"
     prompt_type: "instruction"
     preprocess: "shuffle"
 adapters:
-  - name: "lora_0"
+  - name: "lora_classification"
     type: "lora"
     path: "adapters/lora_sft_0"
     optimizer: "adamw"
     lr: 3e-4
-    r: 32
-    alpha: 64
-    dropout: 0.05
-    target_modules:
-      q_proj: true
-      k_proj: true
-      v_proj: true
-      o_proj: true
-      gate_proj: false
-      down_proj: false
-      up_proj: false
-  - name: "lora_1"
-    type: "lora"
-    path: "adapters/lora_sft_1"
-    optimizer: "adamw"
-    lr: 3e-5
-    r: 32
-    alpha: 64
+    r: 8
+    alpha: 16
     dropout: 0.05
     target_modules:
       q_proj: true
@@ -40,22 +29,44 @@ adapters:
       gate_proj: true
       down_proj: true
       up_proj: true
+  - name: "lora_generation"
+    type: "lora"
+    path: "adapters/lora_sft_1"
+    optimizer: "adamw"
+    lr: 1e-4
+    r: 8
+    alpha: 16
+    dropout: 0.1
+    target_modules:
+      q_proj: true
+      k_proj: true
+      v_proj: true
+      o_proj: true
+      gate_proj: false
+      down_proj: false
+      up_proj: false
 tasks:
   - type: "train"
-    name: "task_0"
-    adapter: "lora_0"
-    dataset: "data"
-    batch_size: 64
-    mini_batch_size: 64
-    num_epochs: 10
-    cutoff_len: 256
-    save_step: 2000
+    name: "task_classification"
+    adapter: "lora_classification"
+    dataset: "data_classification_train"
+    batch_size: 8
+    mini_batch_size: 4
+    num_epochs: 1
+    cutoff_len: 2048
+    save_step: 50
+    device_map: "auto"
+    gradient_checkpointing: True
+    offload: cpu
   - type: "train"
-    name: "task_1"
-    adapter: "lora_1"
-    dataset: "data"
-    batch_size: 64
-    mini_batch_size: 64
-    num_epochs: 10
-    cutoff_len: 256
-    save_step: 2000
+    name: "task_generation"
+    adapter: "lora_generation"
+    dataset: "data_generation_train"
+    batch_size: 8
+    mini_batch_size: 4
+    num_epochs: 1
+    cutoff_len: 2048
+    save_step: 50
+    device_map: "auto"
+    gradient_checkpointing: True
+    offload: cpu

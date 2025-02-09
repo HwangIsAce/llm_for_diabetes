@@ -81,16 +81,37 @@ class LlamaSequentialWrapper(torch.nn.Module):
     def __init__(self, module: torch.nn.Module):
         super().__init__()
         self.wrapper_module_ = module
-
+        self.false_count = 0
     def name(self) -> str:
         return type(self.wrapper_module_).__name__
 
     def forward(self, input: LlamaSequentialModuleIO) -> LlamaSequentialModuleIO:
+        # print(f"DEBUG: input values = {input}")  # ??? ??
+
+        # Tuple? ???? ??
+        input_list = list(input)
+
+        # input ?? ?? ? ??
+        if len(input_list) < 4:
+            # print("WARNING: input length is less than 4. Padding with default values.")
+            input_list += [False] * (4 - len(input_list))  # ??? ?? False? ??
+
+        if input_list[3] is None:
+            # print("WARNING: input[3] is None, setting to False")
+            input_list[3] = False  # ??? ??
+            self.false_count += 1  # False? ?? ?? ???
+
+        # ?? tuple? ???? ?? ??
+        input = tuple(input_list)
+
         assert len(input) == LEN_LLAMA_SEQUENTIAL_MODULE_IO
         assert isinstance(input[0], torch.Tensor)
         assert isinstance(input[1], torch.Tensor)
         assert isinstance(input[2], ModelData)
         assert isinstance(input[3], bool)
+
+        print(f"INFO: Total inputs changed to False: {self.false_count}")
+
 
         # auto catch the input argument
         @nvtx_wrapper("f_embedding")

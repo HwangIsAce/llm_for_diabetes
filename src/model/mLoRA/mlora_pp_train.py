@@ -21,6 +21,8 @@ import mlora.utils
 import mlora.executor
 import mlora.config
 
+import torch
+
 if __name__ == "__main__":
     args = mlora.utils.get_cmd_args()
 
@@ -34,6 +36,20 @@ if __name__ == "__main__":
         mlora.utils.setup_trace_mode()
 
     tokenizer, model = mlora.model.load_model(args)
+
+    print(f"DEBUG: model type = {type(model)}")
+
+    if isinstance(model, torch.nn.Module):
+        model.train()  
+
+        try:
+            model = torch.compile(model, backend="inductor", mode="max-autotune")
+        except AssertionError as e:
+            print("Warning: torch.compile failed, proceeding without it.")
+            print(e)
+    else:
+        print("Warning: Model is not a PyTorch module. Skipping .train() and torch.compile().")
+
     config = mlora.config.MLoRAConfig(args.config)
 
     # init all task from config file

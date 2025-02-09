@@ -284,6 +284,7 @@ class PipeExecutor(Executor):
         train_data: MLoRAData | None = self.dispatcher_.data()
         if train_data is None:
             return
+
         # step1. get the model data and execute the forward
         tensor_data = torch.tensor(
             train_data.batch_tokens_,
