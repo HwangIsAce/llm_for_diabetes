@@ -4,6 +4,7 @@
 # [yanolja]
 /data/jaesung/llm_for_diabetes/src/temp_yanolja/
 
+###  unsloth ###
 # [directory]
 src/data/data2_weekly_diets
 
@@ -58,3 +59,8 @@ src/model/unsloth/inference_results_*.jsonl
 
 # etc
 src/model/unsloth/unsloth_compiled_cache
+
+### mLoRA ###
+
+# [dataset]
+src/model/mLoRA/demo/data_*.json
