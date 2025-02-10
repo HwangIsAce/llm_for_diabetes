@@ -52,7 +52,7 @@ tasks:
     dataset: "data_classification_train"
     batch_size: 8
     mini_batch_size: 4
-    num_epochs: 2
+    num_epochs: 3
     cutoff_len: 2048
     save_step: 50
     device_map: "auto"
@@ -62,7 +62,7 @@ tasks:
     dataset: "data_generation_train"
     batch_size: 8
     mini_batch_size: 4
-    num_epochs: 2
+    num_epochs: 3
     cutoff_len: 2048
     save_step: 50
     device_map: "auto"

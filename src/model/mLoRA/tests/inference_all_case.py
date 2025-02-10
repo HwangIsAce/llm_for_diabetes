@@ -39,9 +39,9 @@ if __name__ == "__main__":
 
     # ?? ???? ??
     input_text = (
-        "instruction: Develop a diabetes-friendly daily meal plan that aligns with specific nutritional goals, providing a well-balanced diet tailored to their health requirements.\n"
-        "input: Limit carbohydrate intake to 45.0g or less, ensure protein intake is no lower than 29.0g, and restrict fat consumption to 12.0g.\n"      
-        "Output:"
+        "instruction: Respond to the patient's query as a professional medical AI, ensuring accuracy and adherence to medical standards. Offer clear, evidence-based guidance while avoiding speculation. Your response should rely only on the provided information and align with established medical protocols.\n"
+        "input: Hello doctor, I have diabetes since the last 11 to 12 years, and I started taking medicines given by my family doctor. Presently, I am taking Glimisave M2 (one tablet in the morning and evening), Dynaglipt 20 (one tablet in the morning), and Absolut 3G (one in the evening). My health is fine, and I do not have any other diseases. Recently, my blood sugar level showed up high, so my family doctor advised me to consult a diabetologist to control blood sugar level. Please help me. I have attached my test reports.\n"
+        "output:"
     )
 
     # ??? ??? ??? ? ??? ??
@@ -83,8 +83,8 @@ if __name__ == "__main__":
     print(f"\n=== Adapter {G_TEST_ADAPTERS} Outputs ===\n")
     for i, output_text in enumerate(output_texts, 1):
         # ? "Output:" ??? ??? ??
-        if "Output:" in output_text:
-            output_text = output_text.split("Output:")[-1].strip()
+        if "output:" in output_text:
+            output_text = output_text.split("output:")[-1].strip()
         
         print(f"?? **Generated Response {i}:**\n{output_text}\n")
         print("=" * 80)
