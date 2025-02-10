@@ -12,11 +12,11 @@ if __name__ == "__main__":
     load_dotenv()
     huggingface_token = os.getenv("HF_TOKEN")
 
-    diabetes = load_dataset("passionMan/diabetes_v14", token=huggingface_token)
+    diabetes = load_dataset("passionMan/diabetes_v15", token=huggingface_token)
 
     # split dataset into classification group, generation group
     group_classification = {"qa1", "qa2", "qa3", "nli", "ie", "re"}
-    group_generation = {"summarization", "generation", "dfh_info", "daily_diets", "alternative_diet"}
+    group_generation = {"summarization", "generation", "daily_diets", "alternative_diet"}
 
     split_data = {"group1": {"train": [], "test": []}, "group2": {"train": [], "test": []}}
 
