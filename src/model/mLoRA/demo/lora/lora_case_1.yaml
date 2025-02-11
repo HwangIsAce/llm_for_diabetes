@@ -54,7 +54,7 @@ tasks:
     mini_batch_size: 4
     num_epochs: 3
     cutoff_len: 2048
-    save_step: 50
+    save_step: 200
     device_map: "auto"
   - type: "train"
     name: "task_generation"
@@ -64,5 +64,5 @@ tasks:
     mini_batch_size: 4
     num_epochs: 3
     cutoff_len: 2048
-    save_step: 50
+    save_step: 200
     device_map: "auto"

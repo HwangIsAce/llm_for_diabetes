@@ -39,43 +39,43 @@ if __name__ == "__main__":
 
     # ?? ???? ??
     input_text = (
-        "instruction: Respond to the patient's query as a professional medical AI, ensuring accuracy and adherence to medical standards. Offer clear, evidence-based guidance while avoiding speculation. Your response should rely only on the provided information and align with established medical protocols.\n"
-        "input: Hello doctor, I have diabetes since the last 11 to 12 years, and I started taking medicines given by my family doctor. Presently, I am taking Glimisave M2 (one tablet in the morning and evening), Dynaglipt 20 (one tablet in the morning), and Absolut 3G (one in the evening). My health is fine, and I do not have any other diseases. Recently, my blood sugar level showed up high, so my family doctor advised me to consult a diabetologist to control blood sugar level. Please help me. I have attached my test reports.\n"
+        "instruction: Generate a structured daily meal plan for diabetes management. The recommended meals must be selected only from the provided dataset and should not include any additional information.\n\nThe output must strictly follow this format:\n\nBreakfast: [meal]\nLunch: [meal]\nDinner: [meal]\n\nThen, provide a brief explanation of how the selected meals support blood sugar control. The explanation should be concise and relevant to diabetes management, focusing on how the selected meals balance macronutrients."
+        "input: Create a meal plan that includes chicken tenderloins((about 1 pound)), maintaining a 50:30:20 macronutrient balance and supporting blood sugar stability for individuals with diabetes."
         "output:"
     )
 
     # ??? ??? ??? ? ??? ??
-    inputs = tokenizer(input_text, return_tensors="pt", padding=True, truncation=True, max_length=2048)
+    inputs = tokenizer(input_text, return_tensors="pt", padding=True, truncation=True)
     input_ids = inputs["input_ids"].to("cuda")
     attention_mask = inputs["attention_mask"].to("cuda")  # ? ??
 
-    # **model.generate() ?? (pipeline() ??)**
-    output_ids = model.generate(
-        input_ids,
-        attention_mask=attention_mask,  # ? ???? ?? ??? ???? ????? ?
-        max_new_tokens=64, 
-        do_sample=True,  # ? ?? ??? ???
-        num_return_sequences=2,  # ? ? ?? ??? ????? ??
-        temperature=0.7, 
-        top_k=40,
-        top_p=0.95,
-        repetition_penalty=1.1,
-        eos_token_id=tokenizer.eos_token_id
-    )
-
+    # # **model.generate() ?? (pipeline() ??)**
     # output_ids = model.generate(
     #     input_ids,
-    #     attention_mask=attention_mask,
-    #     max_new_tokens=2048,  # ? ??? ?? ??
-    #     num_return_sequences=2,  # ? ? ?? ??? ??? ??
-    #     do_sample=True,  # ? ??? ??? ???
-    #     temperature=0.7,  # ? ?? ?? ???? ??
+    #     attention_mask=attention_mask,  # ? ???? ?? ??? ???? ????? ?
+    #     max_new_tokens=1024, 
+    #     do_sample=True,  # ? ?? ??? ???
+    #     num_return_sequences=2,  # ? ? ?? ??? ????? ??
+    #     temperature=0.7, 
     #     top_k=40,
-    #     top_p=0.9,
+    #     top_p=0.95,
     #     repetition_penalty=1.1,
-    #     eos_token_id=tokenizer.eos_token_id,
-    #     pad_token_id=tokenizer.eos_token_id  # ? ?? ?? ??
+    #     eos_token_id=tokenizer.eos_token_id
     # )
+
+    output_ids = model.generate(
+        input_ids,
+        attention_mask=attention_mask,
+        max_new_tokens=64,  # ? ??? ?? ??
+        num_return_sequences=2,  # ? ? ?? ??? ??? ??
+        do_sample=True,  # ? ??? ??? ???
+        temperature=0.5,  # ? ?? ?? ???? ??
+        top_k=50,
+        top_p=0.5,
+        repetition_penalty=1.1,
+        eos_token_id=tokenizer.eos_token_id,
+        pad_token_id=tokenizer.pad_token_id  # ? ?? ?? ??
+    )
 
     # ??? ??? ??? & Output ??? ??
     output_texts = [tokenizer.decode(output, skip_special_tokens=True) for output in output_ids]
