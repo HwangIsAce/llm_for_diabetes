@@ -61,7 +61,10 @@ src/model/unsloth/outputs_new
 src/model/unsloth/model_output
 
 # etc
+src/model/unsloth/unsloth_compiled_cache
 src/model/unsloth/version1/unsloth_compiled_cache
+
+src/model/unsloth/test_dataset
 
 ### mLoRA ###
 
