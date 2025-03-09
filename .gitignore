@@ -1,9 +1,6 @@
 # [api  key]
 .env
 
-# [yanolja]
-/data/jaesung/llm_for_diabetes/src/temp_yanolja/
-
 ###  unsloth ###
 # [directory]
 src/data/data2_weekly_diets
@@ -66,7 +63,34 @@ src/model/unsloth/version1/unsloth_compiled_cache
 
 src/model/unsloth/test_dataset
 
-### mLoRA ###
+# [trial1]
+src/trial
 
-# [dataset]
-src/model/mLoRA/demo/data_*.json
+# [trial2]
+src/trial2
+
+# [trial3]
+src/trial3/cache
+
+src/trial3/Cherry_LLM/data/my_data*
+src/trial3/Cherry_LLM/Llama-3.1-8B
+src/trial3/Cherry_LLM/output
+src/trial3/Cherry_LLM/my_data_*
+
+src/trial3/Dog-Instruct/dog-instruct-wrapper-7b-lora
+src/trial3/Dog-Instruct/Meta-Llama-3-8B
+src/trial3/Dog-Instruct/my_*
+
+src/trial3/model_response
+src/trial3/outputs
+src/trial3/unsloth_compiled_cache
+
+src/trial3/WizardLM/Evol_Instruct/my_*
+
+src/trial3/classification_checkpoint.txt
+src/trial3/diabetes_food_hub*
+src/trial3/filtered_df*
+src/trial3/food_embeddings.npy
+src/trial3/food_faiss.index
+src/trial3/processed_dataset*
+src/trial3/processed_food_data.csv
