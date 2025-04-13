@@ -39,3 +39,4 @@ src/train_model/train/llama3_8B/unsloth_compiled_cache
 
 # etc
 src/experiments/win_rate/task_classification_log_file.txt
+src/experiments/win_rate/unsloth_compiled_cache
