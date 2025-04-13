@@ -1,96 +1,41 @@
-# [api  key]
+# api key
 .env
 
-###  unsloth ###
-# [directory]
-src/data/data2_weekly_diets
+# backup
+src/backup
 
-# [dataset]
-src/data/Recipes
+# cache
+src/cache
 
-src/data/instruction_dataset.json
+# create_dataset
+src/create_dataset/Dog-Instruct/dog-instruct-wrapper-7b-lora
 
-# dataset1 - diabetes
-src/data/data1_diabetes/all_data_filtered_by_keywords.csv
+src/create_dataset/Dog-Instruct/document.json
+src/create_dataset/Dog-Instruct/my_document.json
+src/create_dataset/Dog-Instruct/my_task_dog_instruct.json
+src/create_dataset/Dog-Instruct/my_task_final.jsonl
+src/create_dataset/Dog-Instruct/my_task_limited_creativity.json
+src/create_dataset/Dog-Instruct/my_task_original.json
+src/create_dataset/Dog-Instruct/task.json
 
-src/data/data1_diabetes/final_combined_train_sample.csv
-src/data/data1_diabetes/final_combined_test_sample.csv
+src/create_dataset/test_dataset/*
+src/create_dataset/train_dataset/*
 
-src/data/data1_diabetes/train_instruction_dataset*.json
-src/data/data1_diabetes/test_instruction_dataset*.json
+# experiments
+src/experiments/anlaysis/response/*
+src/experiments/win_rate/*.csv
 
-# dataset2 - daily diet
-src/data/data2_daily_diets/diabetes_food_hub*.csv
+# train
+src/train_model/cache
+src/train_model/Reflection_Tuning/data
 
-src/data/data2_daily_diets/dfh_instrution_dataset*.json
+src/train_model/train/llama3_3B/outputs
+src/train_model/train/llama3_3B/response
+src/train_model/train/llama3_3B/unsloth_compiled_cache
 
-src/data/data2_daily_diets/daily_diets_drop_duplicated_and_sampled*.json
-
-src/data/data2_daily_diets/daily_diets_drop_duplicated_and_sampled_test_instruction_dataset*.json
-src/data/data2_daily_diets/daily_diets_drop_duplicated_and_sampled_train_instruction_dataset*.json
-
-# dataset3 - multi modal
-src/data/data3_multimodal/version1/snapme_origin.csv
-src/data/data3_multimodal/version1/snapme_origin_v3.json
-
-src/data/data3_multimodal/version2
-
-src/data/data3_multimodal/version1/snapme_origin*.json
-
-src/data/data3_multimodal/version1/snapme_train_instruction_dataset*.json
-src/data/data3_multimodal/version1/snapme_test_instruction_dataset*.json
-
-src/data/data3_multimodal/version1/tmp_updated_mm3.csv
-
-# glycemic_idex
-src/data/glycemic_index/
-
-# [model]
-src/model/unsloth/version1/backup
-
-src/model/unsloth/version1/outputs
-src/model/unsloth_compiled_cache
-
-# [result]
-src/model/unsloth/version1/inference_results_*.jsonl
-
-src/model/unsloth/outputs_new
-src/model/unsloth/model_output
+src/train_model/train/llama3_8B/outputs
+src/train_model/train/llama3_8B/response
+src/train_model/train/llama3_8B/unsloth_compiled_cache
 
 # etc
-src/model/unsloth/unsloth_compiled_cache
-src/model/unsloth/version1/unsloth_compiled_cache
-
-src/model/unsloth/test_dataset
-
-# [trial1]
-src/trial
-
-# [trial2]
-src/trial2
-
-# [trial3]
-src/trial3/cache
-
-src/trial3/Cherry_LLM/data/my_data*
-src/trial3/Cherry_LLM/Llama-3.1-8B
-src/trial3/Cherry_LLM/output
-src/trial3/Cherry_LLM/my_data_*
-
-src/trial3/Dog-Instruct/dog-instruct-wrapper-7b-lora
-src/trial3/Dog-Instruct/Meta-Llama-3-8B
-src/trial3/Dog-Instruct/my_*
-
-src/trial3/model_response
-src/trial3/outputs
-src/trial3/unsloth_compiled_cache
-
-src/trial3/WizardLM/Evol_Instruct/my_*
-
-src/trial3/classification_checkpoint.txt
-src/trial3/diabetes_food_hub*
-src/trial3/filtered_df*
-src/trial3/food_embeddings.npy
-src/trial3/food_faiss.index
-src/trial3/processed_dataset*
-src/trial3/processed_food_data.csv
+src/experiments/win_rate/task_classification_log_file.txt

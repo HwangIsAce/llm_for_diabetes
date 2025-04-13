@@ -1,9 +1,0 @@
-template: |
-  ### instruction:
-  {{ data_point['instruction'] + '\n'}}
-  {% if 'input' in data_point %}
-  ### input:
-  {{ data_point['input'] + '\n'}}
-  {% endif %}
-  ### output:
-  {{ data_point['output'] + '\n'}}
